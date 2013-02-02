@@ -1,0 +1,17 @@
+There are many rough edges and the production version is slightly different but way too customized to serve
+ as a starting point for a Voldemort generic storage.
+DiskMap has initially been designed to run with a modified Voldemort routing, 
+allowing performance optimizations for specific file storage use cases ( stored in chunks ):
+- routing chunks of the same file behind the same table bucket to allow read ahead
+- routing in multiple of 3 servers and sub-routing on the different disks, 
+so that each data has a copy in 3 DiskMap managers in 3 machines on 3 identified disk drives, 
+goal here is to allow usage of rsync between drives for a fast rebuild after failure ( transferring the new drive
+into an empty slot of a live machine for no network speed & latency dependency )
+
+
+Storing the various values of a data has to be added ( and consistency resolution at write time removed ).
+Many optimizations can take place by playing with bucket, needle and needle pointers, and read ahead of needles.
+
+For example having needle pointer cache & needle cache being managed on SSD, for a true hybrid solution
+delivering all around perf for small or large data sets
+

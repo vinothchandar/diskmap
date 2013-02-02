@@ -1,0 +1,16 @@
+YobiDrive DiskMap is a library designed to run with Voldemort ( Copyright Linked,In ) as a replacement or complement to BdB.
+YobiDrive DiskMap is a product of EZC Group S.A. (mailto: info@ezcgroup.net) and is part of the YobiDrive Secure Contextual Object Storage.
+DiskMap has been designed to solve the following problems:
+- Getting full control on disk writes and deletions to comply with Legal Archiving regulations
+- Allowing the usage of cheap commodity hardware ( consumer motherboard with many JBOD, slow disks ) for reaching extremely low storage prices ( in 2012 from 1 to 2 cts/GB/month depending on replication and drives, depreciation on 24 months )
+- Keeping decent performance with low memory to disk ratio on the use case "most recent data read the most"
+
+
+
+
+
+
+This library requires Voldemort dependencies + additional dependencies.
+
+
+List currently being reviewed for inclusion of libraries ( Mostly Apache & Google )
