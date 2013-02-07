@@ -589,6 +589,32 @@ public class DiskMapStore  implements StorageEngine<ByteArray, byte[], byte[]> {
 			}
 			
 		}
+
+		@Override
+		public boolean beginBatchModifications() {
+			return false;
+		}
+
+		@Override
+		public boolean endBatchModifications() {
+			return false;
+		}
+
+		@Override
+		public ClosableIterator<Pair<ByteArray, Versioned<byte[]>>> entries(
+				int partition) {
+			return null;
+		}
+
+		@Override
+		public boolean isPartitionScanSupported() {
+			return false;
+		}
+
+		@Override
+		public ClosableIterator<ByteArray> keys(int partition) {
+			return null;
+		}
         
 
 }

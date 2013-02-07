@@ -17,6 +17,7 @@
 
 package com.yobidrive.slop;
 
+import voldemort.routing.RoutingStrategy;
 import voldemort.server.VoldemortConfig;
 import voldemort.store.StorageConfiguration;
 import voldemort.store.StorageEngine;
@@ -35,9 +36,9 @@ public class BdbWrapperConfiguration extends BdbStorageConfiguration implements 
 		super.close() ;
 	}
 
-	public StorageEngine<ByteArray, byte[], byte[]> getStore(StoreDefinition storeDef) {
+	public StorageEngine<ByteArray, byte[], byte[]> getStore(StoreDefinition storeDef, RoutingStrategy strategy) {
 		// TODO Auto-generated method stub
-		return super.getStore(storeDef);
+		return super.getStore(storeDef, strategy);
 	}
 
 	public String getType() {

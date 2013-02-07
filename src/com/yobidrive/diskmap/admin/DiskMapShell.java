@@ -25,6 +25,8 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Properties;
 
+import voldemort.routing.RoutingStrategy;
+import voldemort.routing.RoutingStrategyFactory;
 import voldemort.server.VoldemortConfig;
 import voldemort.store.StoreDefinition;
 import voldemort.utils.ByteArray;
@@ -60,9 +62,9 @@ public class DiskMapShell {
 			StoreDefinition storeDef = new StoreDefinition(storeName, 
 						null, null, null, null, null, null, null, 
 						0, null, 0, null, 0, null, null, null,null, 
-						null, null, null, null, null, null, null, 0);
+						null, null, null, null, null, null, null, null, 0);
 			
-			dms = (DiskMapStore) cfg.getStore(storeDef);
+			dms = (DiskMapStore) cfg.getStore(storeDef, null);
 		} catch (Exception ex) {
 			System.err.println("Unable to start shell");
 			System.exit(0);

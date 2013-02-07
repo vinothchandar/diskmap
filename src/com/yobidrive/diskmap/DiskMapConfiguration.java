@@ -30,6 +30,7 @@ import org.apache.commons.logging.LogFactory;
 
 
 import voldemort.VoldemortException;
+import voldemort.routing.RoutingStrategy;
 import voldemort.server.VoldemortConfig;
 import voldemort.store.StorageConfiguration;
 import voldemort.store.StorageEngine;
@@ -87,7 +88,7 @@ public class DiskMapConfiguration implements StorageConfiguration {
 	}
 
 
-	public StorageEngine<ByteArray, byte[], byte[]> getStore(StoreDefinition storeDef) {
+	public StorageEngine<ByteArray, byte[], byte[]> getStore(StoreDefinition storeDef, RoutingStrategy strategy) {
 	    String name = storeDef.getName() ;
 	DiskMapStore  vs = stores.get(name);
         if ( vs != null ) 
